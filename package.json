@@ -45,9 +45,9 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.3.0"
   },
-  "repository": {
+   "repository": {
     "type": "git",
-    "url": "git+https://ShepelVitalii2.github.io/goit-js-hw-13-image-finder.git"
+    "url": "git+https://github.com/ShepelVitalii2/goit-js-hw-13-image-finder"
   },
   "homepage": "https://ShepelVitalii2.github.io/goit-js-hw-13-image-finder",
   "dependencies": {}
