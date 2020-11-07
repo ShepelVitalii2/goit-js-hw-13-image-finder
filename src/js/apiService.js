@@ -1,3 +1,7 @@
+import { error } from "@pnotify/core";
+import '@pnotify/core/dist/PNotify.css';
+import '@pnotify/core/dist/BrightTheme.css';
+
 const API_KEY = '18992222-0ffbc097a98d577b6731791a7'
 const BASE_URL = 'https://pixabay.com/api'
 
@@ -6,27 +10,6 @@ export default class ApiService{
         this.searchQuery = '';
         this.page = 1;
     }
-    
-// const options = {
-//     headers: {
-//         'Authorization': '18992222-0ffbc097a98d577b6731791a7',
-//     }
-// }
-
-    
-    
-    // fetchImages() {
-        
-    //     const url = `${BASE_URL}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=${API_KEY}`
-    // return fetch(url)
-    //     .then(r => r.json())
-    //     .then(({hits}) => {
-    //         this.incrementPage();
-            
-
-    //         return hits;
-    //     });
-    // }
 
     async fetchImages() {
         
@@ -39,7 +22,7 @@ export default class ApiService{
 
             return newHits.hits;
         } catch (error) {
-            console.log(error)
+            this.errorMessage();
         }
         
     }
@@ -60,5 +43,14 @@ export default class ApiService{
     set query(newQuery) {
         this.searchQuery = newQuery;
     }
+
+    errorMessage(){
+    error({
+        title: 'Что-то пошло не так',
+      text: 'Но ничего страшного, мы над этим работаем',
+      delay: 5000,
+    closerHover: true,
+    })
+}
     
 }

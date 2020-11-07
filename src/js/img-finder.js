@@ -35,6 +35,7 @@ async function onSearch (e) {
     apiImages.query = e.currentTarget.elements.query.value;
 
     try {
+        
         loadMoreBtn.show();
         loadMoreBtn.disable();
         apiImages.resetPage();
@@ -44,7 +45,7 @@ async function onSearch (e) {
             return emptyStringMessage()
         }
     } catch (error) {
-        console.log(error);
+        apiImages.errorMessage();
     }
 };
 
@@ -70,7 +71,7 @@ async function fetchHits() {
         
         
     } catch (error) {
-        console.log(error)
+        apiImages.errorMessage();
     }
     animateScroll()
 }
