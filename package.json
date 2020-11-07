@@ -24,6 +24,7 @@
     "@babel/core": "^7.12.3",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.1",
+    "@pnotify/core": "^5.2.0",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^7.0.2",
@@ -50,6 +51,13 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.3.0"
   },
-  
-  "dependencies": {}
+  "dependencies": {
+    "animated-scroll-to": "^2.0.12",
+    "basiclightbox": "^5.0.3",
+    "core-js": "^3.7.0",
+    "infinite-scroll": "^3.0.6",
+    "material-design-icons": "^3.0.1",
+    "pnotify": "^5.2.0",
+    "regenerator-runtime": "^0.13.7"
+  }
 }
