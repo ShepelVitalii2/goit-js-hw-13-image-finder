@@ -5,7 +5,11 @@ import ApiImages from './apiService';
 import LoadMoreBtn from './load-more-btn';
 import animateScrollTo from 'animated-scroll-to';
 import { onOpenModal } from './modal';
-import { errorMessage, emptyStringMessage } from './pnotify-messages';
+import {
+  errorMessage,
+  emptyStringMessage,
+  noPicturesAtAll,
+} from './pnotify-messages';
 
 const refs = {
   searchForm: document.querySelector('.js-search-form'),
@@ -28,7 +32,8 @@ async function onSearch(e) {
   e.preventDefault();
   clearImgContainer();
   apiImages.query = e.currentTarget.elements.query.value;
-
+  // console.log(response.length);
+  // console.log(query);
   try {
     loadMoreBtn.show();
     loadMoreBtn.disable();
@@ -59,20 +64,22 @@ async function fetchHits() {
 
   try {
     const response = await apiImages.fetchImages();
-    if (response.length < 11) {
-      loadMoreBtn.hide();
-    }
     if (response.length === 0) {
       noPicturesAtAll();
+      animateScrollTo(0, options);
+    } else if (response.length > 0) {
+      imagesMurkup(response);
+
+      loadMoreBtn.enable();
+      animateScroll();
     }
 
-    imagesMurkup(response);
-
-    loadMoreBtn.enable();
+    if (response.length < 12) {
+      loadMoreBtn.hide();
+    }
   } catch (error) {
     loadMoreBtn.hide();
   }
-  animateScroll();
 }
 
 function imagesMurkup(hits) {
