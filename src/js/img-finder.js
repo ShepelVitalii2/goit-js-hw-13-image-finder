@@ -5,10 +5,11 @@ import ApiImages from './apiService';
 import LoadMoreBtn from './load-more-btn';
 import animateScrollTo from 'animated-scroll-to';
 import { onOpenModal } from './modal';
-import { info } from '@pnotify/core';
+import { errorMessage, emptyStringMessage } from './pnotify-messages';
+// import { info } from '@pnotify/core';
 
-import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+// import '@pnotify/core/dist/PNotify.css';
+// import '@pnotify/core/dist/BrightTheme.css';
 
 const refs = {
   searchForm: document.querySelector('.js-search-form'),
@@ -43,7 +44,8 @@ async function onSearch(e) {
       return emptyStringMessage();
     }
   } catch (error) {
-    apiImages.errorMessage();
+    // apiImages.errorMessage();
+    errorMessage();
   }
 }
 
@@ -87,20 +89,20 @@ function clearImgContainer() {
   refs.imgCardContainer.innerHTML = '';
 }
 
-function emptyStringMessage() {
-  info({
-    title: 'Нет информации по поиску тегов',
-    text: 'Но ничего страшного, мы вам что-нибудь подберерем',
-    delay: 5000,
-    closerHover: true,
-  });
-}
+// function emptyStringMessage() {
+//   info({
+//     title: 'Нет информации по поиску тегов',
+//     text: 'Но ничего страшного, мы вам что-нибудь подберерем',
+//     delay: 5000,
+//     closerHover: true,
+//   });
+// }
 
-function noPicturesAtAll() {
-  info({
-    title: 'Такого у нас нет',
-    text: 'Давайте попробуем что нибудь другое',
-    delay: 5000,
-    closerHover: true,
-  });
-}
+// function noPicturesAtAll() {
+//   info({
+//     title: 'Такого у нас нет',
+//     text: 'Давайте попробуем что нибудь другое',
+//     delay: 5000,
+//     closerHover: true,
+//   });
+// }

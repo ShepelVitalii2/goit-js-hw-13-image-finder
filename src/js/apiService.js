@@ -1,6 +1,8 @@
-import { error, info } from '@pnotify/core';
-import '@pnotify/core/dist/PNotify.css';
-import '@pnotify/core/dist/BrightTheme.css';
+// import { error, info } from '@pnotify/core';
+// import '@pnotify/core/dist/PNotify.css';
+// import '@pnotify/core/dist/BrightTheme.css';
+
+import { noMorePicturesLeft } from './pnotify-messages';
 
 const API_KEY = '18992222-0ffbc097a98d577b6731791a7';
 const BASE_URL = 'https://pixabay.com/api';
@@ -22,7 +24,7 @@ export default class ApiService {
 
       return newHits.hits;
     } catch (info) {
-      this.noMorePicturesLeft();
+      noMorePicturesLeft();
     }
   }
 
@@ -40,23 +42,5 @@ export default class ApiService {
 
   set query(newQuery) {
     this.searchQuery = newQuery;
-  }
-
-  errorMessage() {
-    error({
-      title: 'Что-то пошло не так',
-      text: 'Но ничего страшного, мы над этим работаем',
-      delay: 5000,
-      closerHover: true,
-    });
-  }
-
-  noMorePicturesLeft() {
-    info({
-      title: 'Опа, картинки закончились',
-      text: 'Попробуйте поискать что нибудь другое',
-      delay: 5000,
-      closerHover: true,
-    });
   }
 }
