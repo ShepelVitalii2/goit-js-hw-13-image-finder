@@ -1,7 +1,3 @@
-// import { error, info } from '@pnotify/core';
-// import '@pnotify/core/dist/PNotify.css';
-// import '@pnotify/core/dist/BrightTheme.css';
-
 import { noMorePicturesLeft } from './pnotify-messages';
 
 const API_KEY = '18992222-0ffbc097a98d577b6731791a7';

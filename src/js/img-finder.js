@@ -6,16 +6,11 @@ import LoadMoreBtn from './load-more-btn';
 import animateScrollTo from 'animated-scroll-to';
 import { onOpenModal } from './modal';
 import { errorMessage, emptyStringMessage } from './pnotify-messages';
-// import { info } from '@pnotify/core';
-
-// import '@pnotify/core/dist/PNotify.css';
-// import '@pnotify/core/dist/BrightTheme.css';
 
 const refs = {
   searchForm: document.querySelector('.js-search-form'),
   imgCardContainer: document.querySelector('.js-card-container'),
   imgContainer: document.querySelector('.gallery'),
-  //   btnToHide: document.querySelector('.is-hidden'),
 };
 const loadMoreBtn = new LoadMoreBtn({
   selector: '[data-action="load-more"]',
@@ -44,7 +39,6 @@ async function onSearch(e) {
       return emptyStringMessage();
     }
   } catch (error) {
-    // apiImages.errorMessage();
     errorMessage();
   }
 }
@@ -88,21 +82,3 @@ function imagesMurkup(hits) {
 function clearImgContainer() {
   refs.imgCardContainer.innerHTML = '';
 }
-
-// function emptyStringMessage() {
-//   info({
-//     title: 'Нет информации по поиску тегов',
-//     text: 'Но ничего страшного, мы вам что-нибудь подберерем',
-//     delay: 5000,
-//     closerHover: true,
-//   });
-// }
-
-// function noPicturesAtAll() {
-//   info({
-//     title: 'Такого у нас нет',
-//     text: 'Давайте попробуем что нибудь другое',
-//     delay: 5000,
-//     closerHover: true,
-//   });
-// }
